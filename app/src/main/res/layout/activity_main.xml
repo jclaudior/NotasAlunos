@@ -95,7 +95,8 @@
         android:layout_marginStart="20dp"
         android:text="@string/btn_desistir"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTxtTurma" />
+        app:layout_constraintTop_toBottomOf="@+id/editTxtTurma"
+        android:onClick="desistir"/>
 
     <Button
         android:id="@+id/button2"

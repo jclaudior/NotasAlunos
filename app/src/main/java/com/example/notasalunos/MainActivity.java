@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         Spinner spinnerCurso = (Spinner) findViewById(R.id.spinnerCurso);
         EditText editTxtTurma = (EditText) findViewById(R.id.editTxtTurma);
 
-        if(!editTxtRa.getText().toString().isEmpty()) {
+        if (!editTxtRa.getText().toString().isEmpty()) {
             this.ra = Integer.parseInt(editTxtRa.getText().toString());
         }
         this.nome = editTxtNome.getText().toString();
@@ -46,5 +46,9 @@ public class MainActivity extends AppCompatActivity {
 
         System.out.println(curso);
 
+    }
+
+    public void desistir(View view) {
+        finishAffinity();
     }
 }
