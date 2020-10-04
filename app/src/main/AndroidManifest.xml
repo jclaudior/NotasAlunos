@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LancamentoNotas"></activity>
+        <activity android:name=".MediaNota"></activity>
+        <activity android:name=".LancamentoNotas" />
         <activity android:name=".Disciplinas" />
         <activity android:name=".MainActivity">
             <intent-filter>

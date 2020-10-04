@@ -51,8 +51,7 @@ public class Disciplinas extends ListActivity {
     }
 
     public void voltar(View view){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        finish();
     }
 
     public void avancar(View view){
