@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
         android:text="RA:"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -93,19 +94,23 @@
         android:layout_width="174dp"
         android:layout_height="48dp"
         android:layout_marginStart="20dp"
+        android:backgroundTint="#03A9F4"
+        android:onClick="desistir"
         android:text="@string/btn_desistir"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTxtTurma"
-        android:onClick="desistir"/>
+        app:layout_constraintTop_toBottomOf="@+id/editTxtTurma" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="174dp"
         android:layout_height="48dp"
+        android:backgroundTint="#03A9F4"
+        android:onClick="avancar"
         android:text="@string/btn_avancar"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/editTxtTurma"
-        android:onClick="avancar"/>
+        app:layout_constraintTop_toBottomOf="@+id/editTxtTurma" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

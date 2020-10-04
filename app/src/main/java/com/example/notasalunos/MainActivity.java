@@ -2,6 +2,7 @@ package com.example.notasalunos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -45,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
         this.turma = editTxtTurma.getText().toString();
 
         System.out.println(curso);
+
+        Intent intent = new Intent(this, Disciplinas.class);
+        startActivity(intent);
 
     }
 
