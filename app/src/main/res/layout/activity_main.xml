@@ -10,7 +10,7 @@
         android:id="@+id/txtRA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="52dp"
         android:layout_marginTop="16dp"
         android:text="RA:"
         android:textSize="18sp"
@@ -20,11 +20,12 @@
 
     <EditText
         android:id="@+id/editTxtRA"
-        android:layout_width="365dp"
-        android:layout_height="41dp"
+        android:layout_width="308dp"
+        android:layout_height="40dp"
         android:ems="10"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtRA" />
 
@@ -32,7 +33,7 @@
         android:id="@+id/txtNome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="52dp"
         android:text="Nome Completo:"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -41,11 +42,12 @@
 
     <EditText
         android:id="@+id/editTxtNome"
-        android:layout_width="365dp"
-        android:layout_height="43dp"
+        android:layout_width="308dp"
+        android:layout_height="37dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtNome" />
 
@@ -53,7 +55,7 @@
         android:id="@+id/txtCurso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="52dp"
         android:text="Curso:"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -62,9 +64,10 @@
 
     <Spinner
         android:id="@+id/spinnerCurso"
-        android:layout_width="366dp"
-        android:layout_height="42dp"
+        android:layout_width="308dp"
+        android:layout_height="39dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtCurso" />
 
@@ -72,7 +75,7 @@
         android:id="@+id/txtTurma"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="52dp"
         android:text="Turma:"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -81,8 +84,8 @@
 
     <EditText
         android:id="@+id/editTxtTurma"
-        android:layout_width="365dp"
-        android:layout_height="43dp"
+        android:layout_width="308dp"
+        android:layout_height="40dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -91,9 +94,9 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="174dp"
+        android:layout_width="140dp"
         android:layout_height="48dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="52dp"
         android:backgroundTint="#03A9F4"
         android:onClick="desistir"
         android:text="@string/btn_desistir"
@@ -103,13 +106,14 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="174dp"
+        android:layout_width="140dp"
         android:layout_height="48dp"
         android:backgroundTint="#03A9F4"
         android:onClick="avancar"
         android:text="@string/btn_avancar"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.354"
         app:layout_constraintStart_toEndOf="@+id/button"
         app:layout_constraintTop_toBottomOf="@+id/editTxtTurma" />
 
