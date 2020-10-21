@@ -31,15 +31,13 @@
         android:id="@+id/button3"
         android:layout_width="327dp"
         android:layout_height="52dp"
-        android:layout_marginTop="24dp"
         android:backgroundTint="#03A9F4"
         android:onClick="gravar"
         android:text="Calcular"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTxtNotaA2" />
+        tools:layout_editor_absoluteY="402dp" />
 
     <TextView
         android:id="@+id/txtNotaA1"
@@ -68,7 +66,7 @@
         android:id="@+id/txtNotaA2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="44dp"
         android:layout_marginTop="8dp"
         android:text="NotaA2:"
         android:textSize="18sp"
@@ -85,5 +83,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtNotaA2" />
+
+    <TextView
+        android:id="@+id/txtNotaAF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="4dp"
+        android:visibility="gone"
+        android:text="NotaAF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTxtNotaA2" />
+
+    <EditText
+        android:id="@+id/editTxtNotaAf"
+        android:layout_width="326dp"
+        android:layout_height="52dp"
+        android:visibility="gone"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNotaAF" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

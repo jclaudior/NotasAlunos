@@ -42,8 +42,8 @@
 
     <EditText
         android:id="@+id/editTxtNome"
-        android:layout_width="308dp"
-        android:layout_height="37dp"
+        android:layout_width="312dp"
+        android:layout_height="50dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -85,7 +85,7 @@
     <EditText
         android:id="@+id/editTxtTurma"
         android:layout_width="308dp"
-        android:layout_height="40dp"
+        android:layout_height="53dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"

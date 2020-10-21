@@ -9,6 +9,10 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.example.notasalunos.model.Aluno;
+import com.example.notasalunos.model.Curso;
+import com.google.gson.Gson;
+
 public class MainActivity extends AppCompatActivity {
 
     private Integer ra = null;
@@ -30,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinner.setAdapter(adapter);
+
+
+
+
     }
 
     public void avancar(View view) {
@@ -45,9 +53,17 @@ public class MainActivity extends AppCompatActivity {
         this.curso = spinnerCurso.getSelectedItem().toString();
         this.turma = editTxtTurma.getText().toString();
 
-        System.out.println(curso);
+        Aluno aluno = new Aluno();
+        aluno.setRa(this.ra);
+        aluno.setNome(this.nome);
+        Curso curso = new Curso();
+        curso.setDsCurso(this.curso);
+        aluno.setCurso(curso);
+        aluno.setTurma(this.turma);
+
 
         Intent intent = new Intent(this, Disciplinas.class);
+        intent.putExtra("aluno", new Gson().toJson(aluno));
         startActivity(intent);
 
     }

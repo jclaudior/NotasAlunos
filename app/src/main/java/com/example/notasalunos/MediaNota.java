@@ -8,10 +8,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.notasalunos.model.Aluno;
+import com.google.gson.Gson;
+
 public class MediaNota extends AppCompatActivity {
 
     private Double media = null;
     private String disciplina = null;
+    private Aluno aluno;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +24,8 @@ public class MediaNota extends AppCompatActivity {
 
         Intent in = getIntent();
         Bundle b = in.getExtras();
+        String  jsonMyObject = b.getString("aluno");
+        this.aluno = new Gson().fromJson(jsonMyObject, Aluno.class);
         this.disciplina = b.getString("disciplina");
         this.media = b.getDouble("media");
 
@@ -27,20 +33,29 @@ public class MediaNota extends AppCompatActivity {
         TextView txtFinal = (TextView) findViewById(R.id.txtNotaView);
         TextView txtStatus = (TextView) findViewById(R.id.txtStatus);
 
+        for(int i = 0; i < this.aluno.getCurso().getDisciplinas().size(); i ++ ) {
+            if (this.aluno.getCurso().getDisciplinas().get(i).getDsDisciplina().equals(disciplina)) {
+                txtDiciplina.setText(this.aluno.getCurso().getDisciplinas().get(i).getDsDisciplina());
+                txtFinal.setText(String.valueOf(aluno.getCurso().getDisciplinas().get(i).getMedia()));
 
-        txtDiciplina.setText(this.disciplina);
-        txtFinal.setText(String.valueOf(this.media));
-
-        if(media >= 6){
-            txtStatus.setText("Parabéns, Você foi Aprovado!");
-            txtStatus.setTextColor(Color.GREEN);
-        }else{
-            txtStatus.setText("Infelizmente, você esta reprovado!");
-            txtStatus.setTextColor(Color.RED);
+                if (aluno.getCurso().getDisciplinas().get(i).getMedia() >= 6) {
+                    txtStatus.setText("Parabéns, Você foi Aprovado!");
+                    txtStatus.setTextColor(Color.GREEN);
+                } else if(aluno.getCurso().getDisciplinas().get(i).getMedia() < 6 && aluno.getCurso().getDisciplinas().get(i).getNotaAf() > 0){
+                    txtStatus.setText("Infelizmente, você esta reprovado!");
+                    txtStatus.setTextColor(Color.RED);
+                }else{
+                    txtStatus.setText("Necessita realizar AF!");
+                    txtStatus.setTextColor(Color.RED);
+                }
+            }
         }
     }
 
     public void voltar(View view) {
+        Intent intent = new Intent(this, LancamentoNotas.class);
+        intent.putExtra("aluno", new Gson().toJson(aluno));
         finish();
+        startActivity(intent);
     }
 }
