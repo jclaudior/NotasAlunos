@@ -31,13 +31,14 @@
         android:id="@+id/button3"
         android:layout_width="327dp"
         android:layout_height="52dp"
+        android:layout_marginBottom="112dp"
         android:backgroundTint="#03A9F4"
         android:onClick="gravar"
         android:text="Calcular"
         android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="402dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/txtNotaA1"
