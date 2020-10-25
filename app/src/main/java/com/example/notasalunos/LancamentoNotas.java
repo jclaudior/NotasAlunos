@@ -25,6 +25,7 @@ public class LancamentoNotas extends AppCompatActivity {
     private Double notaA1 = null;
     private Double notaA2 = null;
     private Double notaAf = null;
+    private boolean af = false;
     private Aluno aluno;
 
     @Override
@@ -99,6 +100,9 @@ public class LancamentoNotas extends AppCompatActivity {
                         nota1.setText(String.valueOf(aluno.getCurso().getDisciplinas().get(i).getNotaA1()));
                         nota2.setText(String.valueOf(aluno.getCurso().getDisciplinas().get(i).getNotaA2()));
                         notaaf.setText(String.valueOf(aluno.getCurso().getDisciplinas().get(i).getNotaAf()));
+                        System.out.println(aluno.getCurso().getDisciplinas().get(i).getAf());
+                        af = aluno.getCurso().getDisciplinas().get(i).getAf();
+                        System.out.println(af);
                         if ((aluno.getCurso().getDisciplinas().get(i).getMedia() > 0 && aluno.getCurso().getDisciplinas().get(i).getMedia() <= 6) || aluno.getCurso().getDisciplinas().get(i).getNotaAf() > 0) {
                             notaAf.setVisibility(View.VISIBLE);
                             txtNotaAf.setVisibility(View.VISIBLE);
@@ -117,6 +121,9 @@ public class LancamentoNotas extends AppCompatActivity {
                         nota1.setText(String.valueOf(aluno.getCurso().getDisciplinas().get(i).getNotaA1()));
                         nota2.setText(String.valueOf(aluno.getCurso().getDisciplinas().get(i).getNotaA2()));
                         notaaf.setText(String.valueOf(aluno.getCurso().getDisciplinas().get(i).getNotaAf()));
+                        System.out.println(aluno.getCurso().getDisciplinas().get(i).getAf());
+                        af = aluno.getCurso().getDisciplinas().get(i).getAf();
+                        System.out.println(af);
                         if ((aluno.getCurso().getDisciplinas().get(i).getMedia() > 0 && aluno.getCurso().getDisciplinas().get(i).getMedia() <= 6) || aluno.getCurso().getDisciplinas().get(i).getNotaAf() > 0) {
                             notaAf.setVisibility(View.VISIBLE);
                             txtNotaAf.setVisibility(View.VISIBLE);
@@ -140,27 +147,35 @@ public class LancamentoNotas extends AppCompatActivity {
         EditText notaaf = (EditText) findViewById(R.id.editTxtNotaAf);
 
         disciplina = spinnerDisciplina.getSelectedItem().toString();
-        if (!nota1.getText().toString().isEmpty() && !nota2.getText().toString().isEmpty()) {
-            Double media;
+            double media = 0;
             notaA1 = Double.parseDouble(nota1.getText().toString());
             notaA2 = Double.parseDouble(nota2.getText().toString());
-            if (!notaaf.getText().toString().isEmpty()) {
+            if (af) {
                 notaAf = Double.parseDouble(notaaf.getText().toString());
-                if (notaAf >= notaA1 && notaA1 >= notaA2 || notaA1 >= notaAf && notaA1 >= notaA2 ) {
+                System.out.println(notaAf);
+                if(notaA1 >= notaAf && notaA2 >= notaA2){
+                    media = notaA1 + notaA2;
+                }else if (notaAf >= notaA1 && notaA1 >= notaA2 || notaA1 >= notaAf && notaA1 >= notaA2 ) {
                     media = notaA1 + notaAf;
                 } else if(notaAf >= notaA2 && notaA2 >= notaA1 || notaA2 >= notaAf && notaA2 >= notaA1){
                     media = notaA2 + notaAf;
-                } else {
-                    media = notaA1 + notaA2;
                 }
             } else {
                 media = notaA1 + notaA2;
+                if(media < 6) {
+                    af = true;
+                }
             }
             for (int i = 0; i < aluno.getCurso().getDisciplinas().size(); i++) {
-                if (aluno.getCurso().getDisciplinas().get(i).getDsDisciplina() == spinnerDisciplina.getSelectedItem().toString()) {
+                if (aluno.getCurso().getDisciplinas().get(i).getDsDisciplina().equals(spinnerDisciplina.getSelectedItem().toString())) {
                     aluno.getCurso().getDisciplinas().get(i).setNotaA1(notaA1);
                     aluno.getCurso().getDisciplinas().get(i).setNotaA2(notaA2);
-                    aluno.getCurso().getDisciplinas().get(i).setNotaAf(notaAf);
+                    if(notaAf!=null){
+                        aluno.getCurso().getDisciplinas().get(i).setNotaAf(notaAf);
+                    } else{
+                        aluno.getCurso().getDisciplinas().get(i).setNotaAf(0);
+                    }
+                    aluno.getCurso().getDisciplinas().get(i).setAf(af);
                     aluno.getCurso().getDisciplinas().get(i).setMedia(media);
                 }
             }
@@ -174,7 +189,6 @@ public class LancamentoNotas extends AppCompatActivity {
             intent.putExtras(bundle);
             finish();
             startActivity(intent);
-        }
 
     }
 }

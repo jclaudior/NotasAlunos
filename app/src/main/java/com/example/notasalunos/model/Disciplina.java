@@ -6,6 +6,8 @@ public class Disciplina {
     private double notaA2;
     private double notaAf;
     private double media;
+    private boolean af;
+
 
     public String getDsDisciplina() {
         return dsDisciplina;
@@ -45,6 +47,14 @@ public class Disciplina {
 
     public void setMedia(double media) {
         this.media = media;
+    }
+
+    public boolean getAf() {
+        return af;
+    }
+
+    public void setAf(boolean af) {
+        this.af = af;
     }
 
     @Override
