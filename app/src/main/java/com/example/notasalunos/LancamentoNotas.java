@@ -146,10 +146,10 @@ public class LancamentoNotas extends AppCompatActivity {
             notaA2 = Double.parseDouble(nota2.getText().toString());
             if (!notaaf.getText().toString().isEmpty()) {
                 notaAf = Double.parseDouble(notaaf.getText().toString());
-                if (notaA1 < notaAf && notaA1 < notaA2) {
-                    media = notaA2 + notaAf;
-                } else if (notaA2 < notaAf && notaA2 < notaA1) {
+                if (notaAf >= notaA1 && notaA1 >= notaA2 || notaA1 >= notaAf && notaA1 >= notaA2 ) {
                     media = notaA1 + notaAf;
+                } else if(notaAf >= notaA2 && notaA2 >= notaA1 || notaA2 >= notaAf && notaA2 >= notaA1){
+                    media = notaA2 + notaAf;
                 } else {
                     media = notaA1 + notaA2;
                 }
